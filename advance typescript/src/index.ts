@@ -29,7 +29,8 @@ userId = 55;
 
 class User {
 
-  private _courseCount = 25;
+  // private _courseCount = 25;
+  protected _courseCount = 25;
 
   private readonly city: string = "jaipur";
   constructor(
@@ -68,3 +69,42 @@ const hitesh = new User("hitesh","18",24);
 hitesh.courseCount = 12;
 let value = hitesh.courseCount;
 console.log(value);
+
+// here the the subUser will inherit all the properties and the methods of the User class except the private properties and methods
+class subUser extends User {
+  isFamily: boolean = true;
+  changeCourseCount (){
+    this._courseCount = 27;
+  }
+}
+
+// interface TakePhoto{
+//   cameraMode: String;
+//   filter: String;
+//   burst: Number;
+// }
+
+// interface Story{
+//   createStory(): void;
+// }
+
+// class Instagram implements TakePhoto{
+//   constructor(
+//     public cameraMode:String,
+//     public filter: String,
+//     public burst: Number,
+//   ){}
+// }
+
+// class Youtube implements TakePhoto{
+//   constructor(
+//     public cameraMode:String,
+//     public filter: String,
+//     public burst: Number,
+//     public short: string,
+//   ){
+//   }
+//   creatStory(): void{
+//     console.log("story created");
+//   }
+// }
