@@ -25,7 +25,28 @@ class User {
         this.name = name;
         this.age = age;
         this.userId = userId;
+        this._courseCount = 25;
         this.city = "jaipur";
         console.log(this.city);
     }
+    deleteToken() {
+        console.log("token deleted");
+    }
+    get getAppleEmail() {
+        return `apple ${this.name}`;
+    }
+    get courseCount() {
+        return this._courseCount;
+    }
+    set courseCount(courseNum) {
+        if (courseNum <= 1) {
+            throw new Error("course count should be more than 1");
+        }
+        this._courseCount = courseNum;
+    }
 }
+const hitesh = new User("hitesh", "18", 24);
+// hitesh.deleteToken(); // this is not allowed as deleteToken method is a private method and can only be accessable within the user
+hitesh.courseCount = 12;
+let value = hitesh.courseCount;
+console.log(value);
