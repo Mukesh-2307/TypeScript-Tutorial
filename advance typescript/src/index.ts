@@ -28,6 +28,9 @@ userId = 55;
 // below code is somewhat a production level code
 
 class User {
+
+  private _courseCount = 25;
+
   private readonly city: string = "jaipur";
   constructor(
     public name: string,
@@ -36,4 +39,32 @@ class User {
     ){
     console.log(this.city);
   }
+
+  private deleteToken(){
+    console.log("token deleted");
+  }
+
+  get getAppleEmail(): string {
+    return `apple ${this.name}`
+  }
+
+  get courseCount(): number {
+    return this._courseCount
+  }
+
+  set courseCount(courseNum){
+    if (courseNum <= 1){
+      throw new Error("course count should be more than 1")
+    }
+    this._courseCount = courseNum;
+    console.log(this._courseCount);
+  }
 }
+
+const hitesh = new User("hitesh","18",24);
+
+// hitesh.deleteToken(); // this is not allowed as deleteToken method is a private method and can only be accessable within the user
+
+hitesh.courseCount = 12;
+let value = hitesh.courseCount;
+console.log(value);
