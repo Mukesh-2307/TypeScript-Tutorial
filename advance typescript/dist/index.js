@@ -25,6 +25,7 @@ class User {
         this.name = name;
         this.age = age;
         this.userId = userId;
+        // private _courseCount = 25;
         this._courseCount = 25;
         this.city = "jaipur";
         console.log(this.city);
@@ -43,6 +44,7 @@ class User {
             throw new Error("course count should be more than 1");
         }
         this._courseCount = courseNum;
+        console.log(this._courseCount);
     }
 }
 const hitesh = new User("hitesh", "18", 24);
@@ -50,3 +52,40 @@ const hitesh = new User("hitesh", "18", 24);
 hitesh.courseCount = 12;
 let value = hitesh.courseCount;
 console.log(value);
+// here the the subUser will inherit all the properties and the methods of the User class except the private properties and methods
+class subUser extends User {
+    constructor() {
+        super(...arguments);
+        this.isFamily = true;
+    }
+    changeCourseCount() {
+        this._courseCount = 27;
+    }
+}
+// interface TakePhoto{
+//   cameraMode: String;
+//   filter: String;
+//   burst: Number;
+// }
+// interface Story{
+//   createStory(): void;
+// }
+// class Instagram implements TakePhoto{
+//   constructor(
+//     public cameraMode:String,
+//     public filter: String,
+//     public burst: Number,
+//   ){}
+// }
+// class Youtube implements TakePhoto{
+//   constructor(
+//     public cameraMode:String,
+//     public filter: String,
+//     public burst: Number,
+//     public short: string,
+//   ){
+//   }
+//   creatStory(): void{
+//     console.log("story created");
+//   }
+// }
