@@ -26,3 +26,25 @@ const getSomeMoreProducts = (products) => {
     return products[MyIndex];
 };
 // usually people add a "," after defining their generics, this indicates that <T,> is not a normal JSX tag but a user defined data type in generics
+// for example
+function anotherMethodOne(valOne, valTwo) {
+    return {
+        valOne,
+        valTwo
+    };
+}
+function anotherMethodTwo(valone, valtwo) {
+    return {
+        valone,
+        valtwo
+    };
+}
+anotherMethodTwo(3.4, { name: "cello", id: 443, color: 232354 });
+class sellAbles {
+    constructor() {
+        this.cart = [];
+    }
+    addToCart(product) {
+        this.cart.push(product);
+    }
+}
