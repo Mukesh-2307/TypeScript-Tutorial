@@ -42,3 +42,54 @@ const getSomeMoreProducts = <T,>(products: T[]): T => {
 }
 
 // usually people add a "," after defining their generics, this indicates that <T,> is not a normal JSX tag but a user defined data type in generics
+
+// for example
+
+function anotherMethodOne<T, U extends Number>(valOne: T,valTwo: U): Object{
+    return {
+        valOne,
+        valTwo
+    }
+}
+
+// anotherMethodOne(3,"mukesh"); // then this creates a error because we are passing string to a field where it is type number
+
+// anotherMethodOne(3,4.5); // valid
+
+// we can also define in this way 
+
+interface NewBottle{
+    name: String,
+    id: Number,
+    color: Number
+}
+
+function anotherMethodTwo<T, U extends NewBottle>(valone: T, valtwo: U): object{
+    return{
+        valone,
+        valtwo
+    }
+}
+
+anotherMethodTwo(3.4,{name: "cello", id: 443, color: 232354});
+
+// Generics in Classes
+
+interface Quiz{
+    name: String,
+    type: Number
+}
+
+interface Course{
+    name: String,
+    author: String,
+    subject: String
+}
+
+class sellAbles<T>{
+    public cart: T[] = [];
+
+    addToCart(product: T){
+        this.cart.push(product);
+    }
+}
